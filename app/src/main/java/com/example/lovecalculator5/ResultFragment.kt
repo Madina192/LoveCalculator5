@@ -1,5 +1,6 @@
 package com.example.lovecalculator5
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,9 +13,6 @@ import com.example.lovecalculator5.model.LoveModel
 
 class ResultFragment : Fragment() {
     lateinit var binding: FragmentResultBinding
-    private var result: String ?= null
-    private var firstName: String ?= null
-    private var secondName: String ?= null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,22 +24,34 @@ class ResultFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        loadPictures()
+        initClickers()
+        getResult()
+
+    }
+
+    private fun loadPictures() {
         Glide.with(binding.ivLoveResult)
             .load("https://freepngimg.com/thumb/love_birds/8-2-love-birds-free-download-png.png")
             .into(binding.ivLoveResult)
+    }
 
-        binding.btnTryAgain.setOnClickListener {
-            findNavController().navigate(R.id.action_resultFragment_to_calculateFragment)
-        }
-
+    @SuppressLint("SetTextI18n")
+    private fun getResult() {
         if (arguments != null) {
-            result = arguments?.getSerializable(CalculateFragment.LOVE_MODEL) as String?
-
-            binding.tvResult.text = result
-            binding.tvFirstName.text = firstName
-            binding.tvSecondName.text = secondName
+            val result = arguments?.getSerializable(CalculateFragment.LOVE_MODEL) as LoveModel
+            binding.tvFirstName.text = result.firstName
+            binding.tvSecondName.text = result.secondName
+            binding.tvPercentage.text = result.percentage + "%"
+            binding.tvResult.text = result.result
         }
+    }
 
+    private fun initClickers() {
+        binding.btnTryAgain.setOnClickListener {
+            findNavController().navigate(R.id.calculateFragment)
+        }
     }
 
 }

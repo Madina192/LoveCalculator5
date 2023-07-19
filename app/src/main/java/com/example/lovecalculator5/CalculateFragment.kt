@@ -30,17 +30,24 @@ class CalculateFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        Glide.with(binding.ivLove)
-            .load("https://play-lh.googleusercontent.com/NHyKKNlIbkI4f1nFKFChZLqDWfDwn4joKhqB8tDfNlg01RWwlvo_JEytcRrayXUAq-k")
-            .into(binding.ivLove)
+        loadPicture()
+        initClickers()
+    }
 
+    private fun loadPicture() {
+        Glide.with(binding.ivLove)
+            .load("https://pngimg.com/d/love_PNG5.png")
+            .into(binding.ivLove)
+    }
+
+    private fun initClickers() {
         binding.btnCalculate.setOnClickListener {
             if (binding.etFirstName.text.isNotEmpty() && binding.etSecondName.text.isNotEmpty()) {
                 RetrofitService()
                     .api
                     .getPercentage(
-                        firstName = binding.etFirstName.text.toString(),
-                        secondName = binding.etSecondName.text.toString()
+                        binding.etFirstName.text.toString(),
+                        binding.etSecondName.text.toString()
                     )
                     .enqueue(object : Callback<LoveModel> {
                         override fun onResponse(
@@ -50,13 +57,13 @@ class CalculateFragment : Fragment() {
                             findNavController().navigate(
                                 R.id.resultFragment,
                                 bundleOf(
-                                    LOVE_MODEL to response.body().toString()
+                                    LOVE_MODEL to response.body()
                                 )
                             )
                         }
 
                         override fun onFailure(call: Call<LoveModel>, t: Throwable) {
-                            Toast.makeText(requireContext(), "fail", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(requireContext(), "failed", Toast.LENGTH_SHORT).show()
                         }
                     })
             }
@@ -64,9 +71,6 @@ class CalculateFragment : Fragment() {
     }
 
     companion object {
-//        const val PERCENTAGE = "percentage"
-//        const val FIRST_NAME = "first_name"
-//        const val SECOND_NAME = "second_name"
         const val LOVE_MODEL = "love_model"
     }
 }

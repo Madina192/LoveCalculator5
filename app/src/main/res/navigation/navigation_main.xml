@@ -10,17 +10,11 @@
         android:name="com.example.lovecalculator5.ResultFragment"
         android:label="fragment_result"
         tools:layout="@layout/fragment_result" >
-        <action
-            android:id="@+id/action_resultFragment_to_calculateFragment"
-            app:destination="@id/calculateFragment" />
     </fragment>
     <fragment
         android:id="@+id/calculateFragment"
         android:name="com.example.lovecalculator5.CalculateFragment"
         android:label="fragment_calculate"
         tools:layout="@layout/fragment_calculate" >
-        <action
-            android:id="@+id/action_calculateFragment_to_resultFragment"
-            app:destination="@id/resultFragment" />
     </fragment>
 </navigation>

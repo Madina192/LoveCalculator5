@@ -9,4 +9,6 @@
     <string name="me">me</string>
     <string name="try_again">try again</string>
     <string name="_100">100%</string>
+    <string name="result">result</string>
+    <string name="love_calculator">Love Calculator</string>
 </resources>
