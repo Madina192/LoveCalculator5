@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.lovecalculator5.databinding.FragmentCalculateBinding
 import com.example.lovecalculator5.model.LoveModel
+import com.example.lovecalculator5.remote.RetrofitService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

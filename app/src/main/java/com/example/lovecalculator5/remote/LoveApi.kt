@@ -1,4 +1,4 @@
-package com.example.lovecalculator5
+package com.example.lovecalculator5.remote
 
 import com.example.lovecalculator5.model.LoveModel
 import retrofit2.Call
