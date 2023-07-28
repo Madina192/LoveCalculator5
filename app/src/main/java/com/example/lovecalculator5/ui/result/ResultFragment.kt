@@ -1,4 +1,4 @@
-package com.example.lovecalculator5
+package com.example.lovecalculator5.ui.result
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -8,11 +8,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.example.lovecalculator5.R
 import com.example.lovecalculator5.databinding.FragmentResultBinding
 import com.example.lovecalculator5.model.LoveModel
+import com.example.lovecalculator5.ui.calculate.CalculateFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ResultFragment : Fragment() {
-    lateinit var binding: FragmentResultBinding
+    private lateinit var binding: FragmentResultBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

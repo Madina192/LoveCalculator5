@@ -2,10 +2,10 @@ package com.example.lovecalculator5
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
 import com.example.lovecalculator5.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
 
