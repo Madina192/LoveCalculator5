@@ -10,6 +10,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.example.lovecalculator5.App
 import com.example.lovecalculator5.LoveViewModel
 import com.example.lovecalculator5.data.local.Pref
 import com.example.lovecalculator5.R
@@ -62,6 +63,7 @@ class CalculateFragment : Fragment() {
                         if (it.error != null) {
                             Toast.makeText(requireContext(), it.error, Toast.LENGTH_SHORT).show()
                         } else {
+                            App.appDatabase.loveDao().insert(it)
                             findNavController().navigate(
                                 R.id.resultFragment,
                                 bundleOf(LOVE_MODEL to it)

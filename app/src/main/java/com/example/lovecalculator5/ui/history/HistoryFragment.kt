@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.lovecalculator5.App
 import com.example.lovecalculator5.R
 import com.example.lovecalculator5.databinding.FragmentHistoryBinding
 
@@ -18,6 +19,11 @@ class HistoryFragment : Fragment() {
     ): View? {
         binding = FragmentHistoryBinding.inflate(layoutInflater, container, false)
         return inflater.inflate(R.layout.fragment_history, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        var list = App.appDatabase.loveDao().getAll()
     }
 
 }
