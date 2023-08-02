@@ -14,5 +14,5 @@ data class LoveModel(
     var result: String? = null,
     var error: String? = null,
     @PrimaryKey(autoGenerate = true)
-    var id : Int ?= null
+    var id: Int? = null
 ) : java.io.Serializable
