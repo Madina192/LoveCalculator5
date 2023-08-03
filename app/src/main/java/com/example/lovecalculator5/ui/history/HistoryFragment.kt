@@ -32,7 +32,7 @@ class HistoryFragment : Fragment() {
         loadPicture()
 
         binding.recyclerView.adapter = adapter
-        adapter.addTasks(viewModel.getData())
+        adapter.addTasks(viewModel.getSortedData())
     }
 
     private fun loadPicture() {

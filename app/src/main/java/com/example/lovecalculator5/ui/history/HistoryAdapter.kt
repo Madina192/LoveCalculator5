@@ -15,7 +15,6 @@ class HistoryAdapter : Adapter<HistoryAdapter.HistoryViewHolder>() {
     @SuppressLint("NotifyDataSetChanged")
     fun addTasks(list: List<LoveModel>) {
         listOfHistory.addAll(list)
-        listOfHistory.sortBy { it.firstName }
         notifyDataSetChanged()
     }
 

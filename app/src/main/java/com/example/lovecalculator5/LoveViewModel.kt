@@ -13,5 +13,6 @@ class LoveViewModel @Inject constructor(private val repository: Repository) : Vi
         return repository.getPercentage(firstName, secondName)
     }
 
-    fun getData() = repository.getAllData()
+    fun getSortedData() = repository.getAllOrderedByFirstname()
+
 }
