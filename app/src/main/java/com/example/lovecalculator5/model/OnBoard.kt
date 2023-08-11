@@ -1,7 +1,7 @@
 package com.example.lovecalculator5.model
 
 data class OnBoard(
-    val image : String,
+    val anim : Int,
     val title : String,
     val descr : String
 )
